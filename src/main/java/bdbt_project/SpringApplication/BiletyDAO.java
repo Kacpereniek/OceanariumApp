@@ -22,7 +22,7 @@ public class BiletyDAO {
 
     public List<Bilety> list(){
         String sql = "SELECT id_bilet, (select imie||' '||nazwisko from klienci where id_klienta = BILETY.id_klienta ) id_klienta\n" +
-                ",typ_biletu,rodzaj_biletu, nazwa, cena, to_char( data_biletu,'YYYY-MM-DD') data_biletu FROM BILETY";
+                ",typ_biletu,rodzaj_biletu, nazwa, cena, to_char( data_biletu,'YYYY-MM-DD') data_biletu FROM BILETY order by id_bilet desc";
 
         List<Bilety> listBilety = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Bilety.class));
         return listBilety;

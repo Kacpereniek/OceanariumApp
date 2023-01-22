@@ -21,7 +21,8 @@ public class OkazyDAO {
     }
 
     public List<Okazy> list(){
-        String sql = "SELECT * FROM OKAZY";
+        String sql = "SELECT O.id_okazu, Z.NAZWA id_zbiornika,(select nazwa from  gatunki where  gatunki.id_gatunku= o.id_gatunku) id_gatunku , O.typ_okazu typ_okazu, O.nazwa nazwa, O.liczebnosc liczebnosc, O.opis opis\n" +
+                "FROM OKAZY O , ZBIORNIKI Z WHERE Z.id_zbiornika = O.id_zbiornika order by id_okazu desc";
 
         List<Okazy> listOkazy = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Okazy.class));
         return listOkazy;

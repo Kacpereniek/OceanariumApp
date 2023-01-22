@@ -21,7 +21,7 @@ public class AdresyDAO {
     }
 
     public List<Adresy> list(){
-        String sql = "SELECT * FROM ADRESY";
+        String sql = "SELECT * FROM ADRESY order by id_adresu desc";
 
         List<Adresy> listAdresy = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Adresy.class));
         return listAdresy;
@@ -30,7 +30,7 @@ public class AdresyDAO {
     /* Insert – wstawianie nowego wiersza do bazy */
     public void save(Adresy adresy) {
         SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
-        insertActor.withTableName("adresy").usingColumns("id_poczty", "miasto", "ulica", "nr_domu", "nr_lokalu");
+        insertActor.withTableName("adresy").usingColumns("kod_pocztowy", "miasto", "ulica", "nr_domu", "nr_lokalu");
 
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(adresy);
         insertActor.execute(param);
@@ -38,13 +38,13 @@ public class AdresyDAO {
 
     public Adresy get(int id) {
         Object[] args = {id};
-        String sql = "SELECT * FROM BILETY WHERE ID_ADRESU = " + args[0];
+        String sql = "SELECT * FROM ADRESY WHERE ID_ADRESU = " + args[0];
         Adresy adresy = jdbcTemplate.queryForObject(sql, BeanPropertyRowMapper.newInstance(Adresy.class));
         return adresy;
     }
 
     public void update(Adresy adresy) {
-        String sql = "UPDATE ADRESY SET id_poczty=:id_poczty, miasto=:miasto, ulica=:ulica, nr_domu=:nr_domu, nr_lokalu=:nr_lokalu WHERE id_adresu=:id_adresu";
+        String sql = "UPDATE adresy SET kod_pocztowy=:kod_pocztowy, miasto=:miasto, ulica=:ulica, nr_domu=:nr_domu, nr_lokalu=:nr_lokalu WHERE id_adresu=:id_adresu";
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(adresy);
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);
 
@@ -58,4 +58,5 @@ public class AdresyDAO {
 
 
     }
+
 }

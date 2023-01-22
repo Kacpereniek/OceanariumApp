@@ -25,7 +25,7 @@ public class PracownicyDAO {
                 "(select nazwa_stanowiska from stanowiska where id_stanowiska =pracownicy.id_stanowiska )id_stanowiska, imie, nazwisko, to_char(data_urodzenia,'YYYY-MM-DD') data_urodzenia, \n" +
                 "decode(plec,'M','mężczyzna','K', 'kobieta') plec,\n" +
                 "pesel, telefon, email, to_char(data_zatrudnienia,'YYYY-MM-DD') data_zatrudnienia, to_char(data_zwolnienia,'YYYY-MM-DD') data_zwolnienia,\n" +
-                "wyksztalcenie FROM PRACOWNICY";
+                "wyksztalcenie FROM PRACOWNICY order by id_pracownika desc";
 
         List<Pracownicy> listPracownicy = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Pracownicy.class));
         return listPracownicy;
@@ -42,7 +42,7 @@ public class PracownicyDAO {
     }
     public Pracownicy get(int id) {
         Object[] args = {id};
-        String sql = "SELECT * FROM PRACOWNICY WHERE ID_PRACOWNIKA = " + args[0];
+        String sql = "SELECT id_pracownika, id_oceanarium, id_adresu,id_stanowiska,imie, drugie_imie, nazwisko, to_char( data_urodzenia,'YYYY-MM-DD') data_urodzenia, plec, pesel, telefon, email, to_char( data_zatrudnienia,'YYYY-MM-DD') data_zatrudnienia, to_char( data_zwolnienia,'YYYY-MM-DD') data_zwolnienia, wyksztalcenie FROM pracownicy WHERE ID_pracownika = " + args[0];
         Pracownicy pracownicy = jdbcTemplate.queryForObject(sql, BeanPropertyRowMapper.newInstance(Pracownicy.class));
 
         return pracownicy;

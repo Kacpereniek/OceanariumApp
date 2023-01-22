@@ -1,17 +1,17 @@
 package bdbt_project.SpringApplication;
 
 public class Adresy {
-    private int id_adresu;
-    private int id_poczty;
+    private String id_adresu;
+    private String kod_pocztowy;
     private String miasto;
     private String ulica;
     private String nr_domu;
-    private int nr_lokalu;
+    private String nr_lokalu;
 
 
-    public Adresy(int id_adresu, int id_poczty, String miasto, String ulica, String nr_domu, int nr_lokalu) {
+    public Adresy(String id_adresu, String kod_pocztowy, String miasto, String ulica, String nr_domu, String nr_lokalu) {
         this.id_adresu = id_adresu;
-        this.id_poczty = id_poczty;
+        this.kod_pocztowy = kod_pocztowy;
         this.miasto = miasto;
         this.ulica = ulica;
         this.nr_domu = nr_domu;
@@ -22,20 +22,20 @@ public class Adresy {
 
     }
 
-    public int getId_adresu() {
+    public String getId_adresu() {
         return id_adresu;
     }
 
-    public void setId_adresu(int id_adresu) {
+    public void setId_adresu(String id_adresu) {
         this.id_adresu = id_adresu;
     }
 
-    public int getId_poczty() {
-        return id_poczty;
+    public String getKod_pocztowy() {
+        return kod_pocztowy;
     }
 
-    public void setId_poczty(int id_poczty) {
-        this.id_poczty = id_poczty;
+    public void setKod_pocztowy(String kod_pocztowy) {
+        this.kod_pocztowy = kod_pocztowy;
     }
 
     public String getMiasto() {
@@ -62,17 +62,17 @@ public class Adresy {
         this.nr_domu = nr_domu;
     }
 
-    public int getNr_lokalu() {
+    public String getNr_lokalu() {
         return nr_lokalu;
     }
 
-    public void setNr_lokalu(int nr_lokalu) {
+    public void setNr_lokalu(String nr_lokalu) {
         this.nr_lokalu = nr_lokalu;
     }
 
     @Override
     public String toString() {
-        return "Adresy [id_adresu=" + id_adresu + ", id_poczty=" + id_poczty + ", miasto=" + miasto +", ulica=" + ulica + ", nr_domu=" + nr_domu +", nr_lokalu=" + nr_lokalu + "]";
+        return "Adresy [id_adresu=" + id_adresu + ", kod_pocztowy=" + kod_pocztowy + ", miasto=" + miasto +", ulica=" + ulica + ", nr_domu=" + nr_domu +", nr_lokalu=" + nr_lokalu + "]";
     }
 
 }

@@ -10,7 +10,7 @@
 <body>
 
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+<nav class="navbar navbar-expand-lg navbar-dark static-top" style="background-color: #1b5a7a">
     <div class="container">
         <a class="navbar-brand" href="/">Baza Oceanarium Politechniki Warszawskiej</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -21,9 +21,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
 
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/index}">Home</a>
-                </li>
+
 
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Main
@@ -36,9 +34,7 @@
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/okazy_admin}">Okazy</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/zbiorniki_admin}">Zbiorniki</a>
-                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/bilety_admin}">Bilety</a>
                 </li>
@@ -64,7 +60,7 @@
                     <div style="font-size:20px">If you want to logout, click "Logout" button under this text.</div>
                 </div>
 
-                <button class="btn btn-primary" type="submit" onclick="successfullyLogout()" value="Sign Out">Logout
+                <button class="btn btn-primary" type="submit" onclick="successfullyLogout()" value="Sign Out" style="background-color: #1b5a7a; border-color: #1b5a7a">Logout
                 </button>
             </form>
         </div>

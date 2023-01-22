@@ -10,7 +10,7 @@
 <body>
 
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+<nav class="navbar navbar-expand-lg navbar-dark static-top" style="background-color: #1b5a7a">
     <div class="container">
         <a class="navbar-brand" href="/">Baza Oceanarium Politechniki Warszawskiej</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -21,11 +21,9 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
 
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/index}">Home</a>
-                </li>
 
-                <li class="nav-item active">
+
+                <li class="nav-item ">
                     <a class="nav-link" th:href="@{/main_admin}">Main</a>
                 </li>
                 <li class="nav-item">
@@ -34,10 +32,8 @@
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/okazy_admin}">Okazy</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/zbiorniki_admin}">Zbiorniki</a>
-                </li>
-                <li class="nav-item">
+
+                <li class="nav-item active">
                     <a class="nav-link" href="#">Bilety
                         <span class="sr-only">(current)</span></a>
                 </li>
@@ -56,57 +52,55 @@
     <div class="row">
         <div class="col-md-10 mt-5">
 
-            <label style="font-size:30px">Zarządzanie biletami</label>
-            <div style="font-size:20px">Edytowanie danych związanych z biletami
+            <label style="font-size:30px">Zarządzanie Biletami</label>
+            <div style="font-size:20px">Edytowanie danych związanych z Biletami
             </div>
 
         </div>
     </div>
 </div>
 
-<div class="container">
-    <div class="col-md-10 mt-5">
-        <h1>bilety</h1>
+<div>
+    <div class="container text-nowrap">
+        <div class="col-md-10 mt-5">
+            <a href="/newbilet_admin"
+               class="btn text-white mt-1 mb-1"
+               style="background-color: #1b5a7a; font-size: 18px"
+            >Dodaj nowy bilet</a>
+            <table class="table table-bordered">
+                <thead class="thead-light">
+                <tr>
 
-        <table border="1" cellpadding="10">
+                    <th>Typ biletu</th>
+                    <th>Rodzaj biletu</th>
+                    <th>Nazwa</th>
+                    <th>Cena</th>
+                    <th>Data biletu</th>
+                    <th>Operacja</th>
 
-            <thead>
-            <tr>
-                <!--  <th>id_bilet</th>-->
-                  <th>id_klienta</th>
-                  <th>typ_biletu</th>
-                  <th>rodzaj_biletu</th>
-                  <th>nazwa</th>
-                  <th>cena</th>
-                  <th>data_biletu</th>
-                  <th>Operacja</th>
+                </tr>
+                </thead>
 
+                <tbody>
+                <tr th:each="bilety : ${listBilety}">
+                    <!-- <td th:text="${bilety.id_bilet}">id_bilet</td>-->
 
-              </tr>
-              </thead>
-
-              <tbody>
-              <tr th:each="bilety : ${listBilety}">
-                  <!-- <td th:text="${bilety.id_bilet}">id_bilet</td>-->
-                 <td th:text="${bilety.id_klienta}">id_klienta</td>
-                 <td th:text="${bilety.typ_biletu}">typ_biletu</td>
-                 <td th:text="${bilety.rodzaj_biletu}">rodzaj_biletu</td>
-                 <td th:text="${bilety.nazwa}">nazwa</td>
-                 <td th:text="${bilety.cena}">cena</td>
-                 <td th:text="${bilety.data_biletu}">data_biletu</td>
-                 <td>
-                     <a th:href="@{'/editbilet/' + ${bilety.id_bilet}}">Edytuj</a>
-                     &nbsp;&nbsp;&nbsp;&nbsp;
-                     <a th:href="@{'/deletebilet/' + ${bilety.id_bilet}}">Usuń</a>
-                 </td>
-             </tr>
-             </tbody>
-
-         </table>
-
-         <a href="/newbilet_admin">Dodaj nowy bilet</a>
-     </div>
- </div>
+                    <td th:text="${bilety.typ_biletu}">typ_biletu</td>
+                    <td th:text="${bilety.rodzaj_biletu}">rodzaj_biletu</td>
+                    <td th:text="${bilety.nazwa}">nazwa</td>
+                    <td th:text="${bilety.cena}">cena</td>
+                    <td th:text="${bilety.data_biletu}">data_biletu</td>
+                    <td>
+                        <a th:href="@{'/editbilet/' + ${bilety.id_bilet}}">Edytuj</a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <a th:href="@{'/deletebilet/' + ${bilety.id_bilet}}">Usuń</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
  <div align="center">
 

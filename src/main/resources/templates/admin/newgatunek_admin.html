@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Main Admin Page</title>
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark static-top" style="background-color: #1b5a7a">
+    <div class="container">
+        <a class="navbar-brand" href="/">Baza Oceanarium Politechniki Warszawskiej</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+
+
+
+                <li class="nav-item ">
+                    <a class="nav-link" th:href="@{/main_admin}">Main
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/pracownicy_admin}">Pracownicy</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Okazy
+                        <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/bilety_admin}">Bilety</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:inline="text" style="color:lightskyblue;">You are logged in as <b
+                            style="text-transform:capitalize">[[${#httpServletRequest.remoteUser}]]</b></a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div align="center">
+    <h1>Dodaj nowy gatunek</h1>
+
+    <br/>
+
+    <div class="container" style="width: 500px">
+        <form action="#" th:action="@{/savegatunek_admin}" th:object="${gatunki}" method="post">
+
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text  " style="width: 150px">Typ gatunku</span>
+                </div>
+                <select class="form-control" th:field="*{typ_gatunku}">
+                    <option th:value="'Ryba'" th:text="Ryba"></option>
+                    <option th:value="'Gad'" th:text="Gad"></option>
+                    <option th:value="'Ssak'" th:text="Ssak"></option>
+                    <option th:value="'Płaz'" th:text="Płaz"></option>
+                    <option th:value="'Bezkręgowiec'" th:text="Bezkręgowiec"></option>
+                    <option th:value="'Roślina'" th:text="Roślina"></option>
+
+                </select>
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text  " style="width: 150px">Nazwa</span>
+                </div>
+                <input class="form-control" type="text" th:field="*{nazwa}" maxlength="15">
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text  " style="width: 150px">Rozmnażanie</span>
+                </div>
+                <input class="form-control" type="text" th:field="*{rozmnazanie}" maxlength="35">
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text  " style="width: 150px">Pochodzenie</span>
+                </div>
+                <input class="form-control" type="text" th:field="*{pochodzenie}" maxlength="35">
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text  " style="width: 150px">Występowanie</span>
+                </div>
+                <input class="form-control" type="text" th:field="*{wystepowanie}" maxlength="30">
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text  " style="width: 150px">Pokarm</span>
+                </div>
+                <input class="form-control" type="text" th:field="*{pokarm}" maxlength="30">
+            </div>
+
+
+            <button
+                    class='btn text-white'
+                    style="background-color: #1b5a7a; font-size: 18px"
+                    type="submit"
+            >Zapisz</button>
+        </form>
+    </div>
+    </form>
+</div>
+<div align="center">
+
+
+</div>
+
+
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/script.js}"></script>
+
+</body>
+</html>

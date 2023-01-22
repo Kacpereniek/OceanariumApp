@@ -10,7 +10,7 @@
 <body>
 
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+<nav class="navbar navbar-expand-lg navbar-dark static-top" style="background-color: #1b5a7a">
     <div class="container">
         <a class="navbar-brand" href="/">Baza Oceanarium Politechniki Warszawskiej</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -21,24 +21,20 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
 
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/index}">Home</a>
-                </li>
 
-                <li class="nav-item active">
+
+                <li class="nav-item ">
                     <a class="nav-link" th:href="@{/main_admin}">Main
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/pracownicy_admin}">Pracownicy</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="#">Okazy
                         <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/zbiorniki_admin}">Zbiorniki</a>
-                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/bilety_admin}">Bilety</a>
                 </li>
@@ -52,62 +48,61 @@
     </div>
 </nav>
 
+
+
 <div class="container">
     <div class="row">
         <div class="col-md-10 mt-5">
 
             <label style="font-size:30px">Zarządzanie Okazami</label>
-            <div style="font-size:20px">Edytowanie danych związanych z okazami
+            <div style="font-size:20px">Edytowanie danych związanych z Okazami
             </div>
 
         </div>
     </div>
 </div>
 
-<div class="container">
-    <div class="col-md-10 mt-5">
-        <h1>Okazy</h1>
+<div>
+    <div class="container text-nowrap">
+        <div class="col-md-10 mt-5">
+            <a href="/newgatunek_admin"
+               class="btn text-white mt-1 mb-1"
+               style="background-color: #1b5a7a; font-size: 18px"
+            >Dodaj nowy okaz</a>
+            <table class="table table-bordered">
+                <thead class="thead-light">
+                <tr>
 
-        <table border="1" cellpadding="10">
+                    <th>Zbiornik</th>
+                    <th>Gatunek</th>
+                    <th>Typ okazu</th>
+                    <th>Nazwa</th>
+                    <th>Liczba</th>
+                    <th>Opis</th>
+                    <th>Operacja</th>
 
-            <thead>
-            <tr>
-                <th>id_okazu</th>
-                <th>id_zbiornika</th>
-                <th>id_gatunku</th>
-                <th>typ_okazu</th>
-                <th>nazwa</th>
-                <th>liczebnosc</th>
-                <th>opis</th>
-                <th>Operacja</th>
+                </tr>
+                </thead>
 
-
-            </tr>
-            </thead>
-
-            <tbody>
-            <tr th:each="okazy : ${listOkazy}">
-                <td th:text="${okazy.id_okazu}">id_okazu</td>
-                <td th:text="${okazy.id_zbiornika}">id_zbiornika</td>
-                <td th:text="${okazy.id_gatunku}">id_gatunku</td>
-                <td th:text="${okazy.typ_okazu}">typ_okazu</td>
-                <td th:text="${okazy.nazwa}">nazwa</td>
-                <td th:text="${okazy.liczebnosc}">liczebnosc</td>
-                <td th:text="${okazy.opis}">opis</td>
-                <td>
-                    <a th:href="@{'/editokaz/' + ${okazy.id_okazu}}">Edytuj</a>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <a th:href="@{'/deleteokaz/' + ${okazy.id_okazu}}">Usuń</a>
-                </td>
-            </tr>
-            </tbody>
-
-        </table>
-
-        <a href="/newokaz_admin">Dodaj nowy okaz</a>
+                <tbody>
+                <tr th:each="okazy : ${listOkazy}">
+                    <td th:text="${okazy.id_zbiornika}">id_zbiornika</td>
+                    <td th:text="${okazy.id_gatunku}">id_gatunku</td>
+                    <td th:text="${okazy.typ_okazu}">typ_okazu</td>
+                    <td th:text="${okazy.nazwa}">nazwa</td>
+                    <td th:text="${okazy.liczebnosc}">liczebnosc</td>
+                    <td th:text="${okazy.opis}">opis</td>
+                    <td>
+                        <a th:href="@{'/editokaz/' + ${okazy.id_okazu}}">Edytuj</a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <a th:href="@{'/deleteokaz/' + ${okazy.id_okazu}}">Usuń</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
-
 <div align="center">
 
 

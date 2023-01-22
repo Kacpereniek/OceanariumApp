@@ -1,0 +1,178 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Main Admin Page</title>
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark static-top" style="background-color: #1b5a7a">
+    <div class="container">
+        <a class="navbar-brand" href="/">Baza Oceanarium Politechniki Warszawskiej</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+
+
+                <li class="nav-item ">
+                    <a class="nav-link" th:href="@{/main_user}">Main
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Pracownicy
+                        <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/okazy_user}">Okazy</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/newbilet_user}">Bilety</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:inline="text" style="color:lightskyblue;">You are logged in as <b
+                            style="text-transform:capitalize">[[${#httpServletRequest.remoteUser}]]</b></a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div align="center">
+    <h1>Edytuj pracownika</h1>
+
+    <br/>
+
+    <div class="container" style="width: 500px">
+        <form action="#" th:action="@{/updatepracownik_user}" th:object="${pracownicy}" method="post">
+
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text  " style="width: 150px">Stanowisko</span>
+                </div>
+                <select class="form-control" th:field="*{id_stanowiska}">
+                    <option th:value="'1'" th:text="Dyrektor"></option>
+                    <option th:value="'2'" th:text="Kierownik"></option>
+                    <option th:value="'3'" th:text="Kasjer"></option>
+                    <option th:value="'4'" th:text="Opiekun"></option>
+                    <option th:value="'5'" th:text="Serwisant"></option>
+                    <option th:value="'6'" th:text="Księgowy"></option>
+                    <option th:value="'7'" th:text="Sprzątaczka"></option>
+                </select>
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text  " style="width: 150px">Imie</span>
+                </div>
+                <input class="form-control" type="text" th:field="*{imie}" maxlength="15" required>
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text  " style="width: 150px">Drugie imie</span>
+                </div>
+                <input class="form-control" type="text" th:field="*{drugie_imie}" maxlength="15">
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text  " style="width: 150px">Nazwisko</span>
+                </div>
+                <input class="form-control" type="text" th:field="*{nazwisko}" maxlength="15" required>
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text  " style="width: 150px">Data urodzenia</span>
+                </div>
+                <input class="form-control" type="date" th:field="*{data_urodzenia}" required>
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text  " style="width: 150px">Płeć</span>
+                </div>
+                <select class="form-control" th:field="*{plec}">
+                    <option th:value="'M'" th:text="Mężczyzna"></option>
+                    <option th:value="'K'" th:text="Kobieta"></option>
+                </select>
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text  " style="width: 150px">PESEL</span>
+                </div>
+                <input class="form-control" type="tel" th:field="*{pesel}" minlength="11"  maxlength="11">
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text  " style="width: 150px">Telefon</span>
+                </div>
+                <input class="form-control" type="tel" th:field="*{telefon}" minlength="9" maxlength="9" required>
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text  " style="width: 150px">E-mail</span>
+                </div>
+                <input class="form-control" type="email" th:field="*{email}"minlength="5" maxlength="12" required>
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text  " style="width: 150px">Data zatrudnienia</span>
+                </div>
+                <input class="form-control" type="date" th:field="*{data_zatrudnienia}" required>
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text  " style="width: 150px">Data zwolnienia</span>
+                </div>
+                <input class="form-control" type="date" th:field="*{data_zwolnienia}">
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text  " style="width: 150px">Wykształcenie</span>
+                </div>
+                <select class="form-control" th:field="*{wyksztalcenie}">
+                    <option th:value="'Podstawowe'" th:text="Podstawowe"></option>
+                    <option th:value="'Średnie'" th:text="Średnie"></option>
+                    <option th:value="'Wyższe'" th:text="Wyższe"></option>
+                </select>
+            </div>
+            <button
+                    class='btn text-white'
+                    style="background-color: #1b5a7a; font-size: 18px"
+                    type="submit"
+            >Zapisz</button>
+            <input class="form-control" type="hidden" th:field="*{id_oceanarium}">
+            <input class="form-control" type="hidden" th:field="*{id_adresu}">
+        </form>
+    </div>
+    </form>
+    <a class="btn text-white mt-1 mb-1"
+       style="background-color: #1b5a7a; font-size: 18px" th:href="@{'/editadres/' + ${pracownicy.id_adresu}}">Adres</a>
+
+    <div align="center">
+    </div>
+
+    <div align="center">
+
+    </div>
+</div>
+<div align="center">
+
+
+</div>
+
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/script.js}"></script>
+
+</body>
+</html>

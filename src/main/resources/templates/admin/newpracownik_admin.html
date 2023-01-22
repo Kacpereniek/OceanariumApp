@@ -10,7 +10,7 @@
 <body>
 
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+<nav class="navbar navbar-expand-lg navbar-dark static-top" style="background-color: #1b5a7a">
     <div class="container">
         <a class="navbar-brand" href="/">Baza Oceanarium Politechniki Warszawskiej</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -21,24 +21,20 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
 
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/index}">Home</a>
-                </li>
 
-                <li class="nav-item active">
+
+                <li class="nav-item ">
                     <a class="nav-link" th:href="@{/main_admin}">Main
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="#">Pracownicy
                         <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/okazy_admin}">Okazy</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/zbiorniki_admin}">Zbiorniki</a>
-                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/bilety_admin}">Bilety</a>
                 </li>
@@ -57,77 +53,106 @@
 
     <br/>
 
-    <form action="#" th:action="@{/savepracownik_admin}" th:object="${pracownicy}" method="post">
-        <table border="1" cellpadding="10">
-            <tr>
-                <td>id_pracownika:</td>
-                <td><input type="text" th:field="*{id_pracownika}" readonly="readonly"></td>
-            </tr>
-            <tr>
-                <td>id_oceanarium:</td>
-                <td><input type="text" th:field="*{id_oceanarium}"></td>
-            </tr>
-            <tr>
-                <td>id_adresu:</td>
-                <td><input type="text" th:field="*{id_adresu}"></td>
-            </tr>
-            <tr>
-                <td>id_stanowiska:</td>
-                <td><input type="text" th:field="*{id_stanowiska}"></td>
-            </tr>
-
-            <tr>
-                <td>imie:</td>
-                <td><input type="text" th:field="*{imie}"></td>
-            </tr>
-
-            <tr>
-                <td>drugie_imie:</td>
-                <td><input type="text" th:field="*{drugie_imie}"></td>
-            </tr>
-
-            <tr>
-                <td>nazwisko:</td>
-                <td><input type="text" th:field="*{nazwisko}"></td>
-            </tr>
-
-            <tr>
-                <td>data_urodzenia:</td>
-                <td><input type="date" th:field="*{data_urodzenia}"></td>
-            </tr>
-            <tr>
-                <td>plec:</td>
-                <td><input type="text" th:field="*{plec}"></td>
-            </tr>
-            <tr>
-                <td>pesel:</td>
-                <td><input type="text" th:field="*{pesel}"></td>
-            </tr>
-            <tr>
-                <td>telefon:</td>
-                <td><input type="text" th:field="*{telefon}"></td>
-            </tr>
-            <tr>
-                <td>email:</td>
-                <td><input type="text" th:field="*{email}"></td>
-            </tr>
-            <tr>
-                <td>data_zatrudnienia:</td>
-                <td><input type="date" th:field="*{data_zatrudnienia}"></td>
-            </tr>
-            <tr>
-                <td>data_zwolnienia:</td>
-                <td><input type="date" th:field="*{data_zwolnienia}"></td>
-            </tr>
-            <tr>
-                <td>wyksztalcenie:</td>
-                <td><input type="text" th:field="*{wyksztalcenie}"></td>
-            </tr>
-            <tr>
-                <td colspan="2" align="center"><button type="submit">Zapisz</button></td>
-            </tr>
-        </table>
+    <div class="container" style="width: 500px">
+        <form action="#" th:action="@{/savepracownik_admin}" th:object="${pracownicy}" method="post">
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text  " style="width: 150px">Stanowisko</span>
+                </div>
+                <select class="form-control" th:field="*{id_stanowiska}">
+                    <option th:value="'1'" th:text="Dyrektor"></option>
+                    <option th:value="'2'" th:text="Kierownik"></option>
+                    <option th:value="'3'" th:text="Kasjer"></option>
+                    <option th:value="'4'" th:text="Opiekun"></option>
+                    <option th:value="'5'" th:text="Serwisant"></option>
+                    <option th:value="'6'" th:text="Księgowy"></option>
+                    <option th:value="'7'" th:text="Sprzątaczka"></option>
+                </select>
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text  " style="width: 150px">Imie</span>
+                </div>
+                <input class="form-control" type="text" th:field="*{imie}" maxlength="15" required>
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text  " style="width: 150px">Drugie imie</span>
+                </div>
+                <input class="form-control" type="text" th:field="*{drugie_imie}" maxlength="15">
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text  " style="width: 150px">Nazwisko</span>
+                </div>
+                <input class="form-control" type="text" th:field="*{nazwisko}" maxlength="15" required>
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text  " style="width: 150px">Data urodzenia</span>
+                </div>
+                <input class="form-control" type="date" th:field="*{data_urodzenia}" required>
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text  " style="width: 150px">Płeć</span>
+                </div>
+                <select class="form-control" th:field="*{plec}">
+                    <option th:value="'M'" th:text="Mężczyzna"></option>
+                    <option th:value="'K'" th:text="Kobieta"></option>
+                </select>
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text  " style="width: 150px">PESEL</span>
+                </div>
+                <input class="form-control" type="tel" th:field="*{pesel}" minlength="11"  maxlength="11">
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text  " style="width: 150px">Telefon</span>
+                </div>
+                <input class="form-control" type="tel" th:field="*{telefon}" minlength="9" maxlength="9" required>
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text  " style="width: 150px">E-mail</span>
+                </div>
+                <input class="form-control" type="email" th:field="*{email}"minlength="5" maxlength="12" required>
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text  " style="width: 150px">Data zatrudnienia</span>
+                </div>
+                <input class="form-control" type="date" th:field="*{data_zatrudnienia}" required>
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text  " style="width: 150px">Wykształcenie</span>
+                </div>
+                <select class="form-control" th:field="*{wyksztalcenie}">
+                    <option th:value="'Podstawowe'" th:text="Podstawowe"></option>
+                    <option th:value="'Średnie'" th:text="Średnie"></option>
+                    <option th:value="'Wyższe'" th:text="Wyższe"></option>
+                </select>
+            </div>
+            <button
+                    class='btn text-white'
+                    style="background-color: #1b5a7a; font-size: 18px"
+                    type="submit"
+            >Zapisz</button>
+            <input class="form-control" type="hidden" th:field="*{id_adresu}">
+            <input class="form-control" type="hidden" th:field="*{id_oceanarium}">
+        </form>
+    </div>
     </form>
+
+    <div align="center">
+    </div>
+
+    <div align="center">
+
+    </div>
 </div>
 
 <div align="center">

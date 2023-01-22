@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Main User Page</title>
+    <title>Main Admin Page</title>
 
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
 
@@ -10,7 +10,7 @@
 <body>
 
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+<nav class="navbar navbar-expand-lg navbar-dark static-top" style="background-color: #1b5a7a">
     <div class="container">
         <a class="navbar-brand" href="/">Baza Oceanarium Politechniki Warszawskiej</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -21,12 +21,11 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
 
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/index}">Home</a>
-                </li>
+
 
                 <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/main_user}">Main</a>
+                    <a class="nav-link" th:href="@{/main_user}">Main
+                    </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/pracownicy_user}">Pracownicy</a>
@@ -39,7 +38,7 @@
                         <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/bilety_user}">Bilety</a>
+                    <a class="nav-link" th:href="@{/newbilet_user}">Bilety</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" th:inline="text" style="color:lightskyblue;">You are logged in as <b
@@ -50,7 +49,6 @@
         </div>
     </div>
 </nav>
-
 
 <div class="container">
     <div class="row">
@@ -99,9 +97,9 @@
                 <td th:text="${zbiorniki.data_przegladu}">data_przegladu</td>
                 <td th:text="${zbiorniki.opis}">opis</td>
                 <td>
-                    <a th:href="@{'/edit/' + ${zbiorniki.idPracownika}}">Edytuj</a>
-
-                    <a th:href="@{'/delete/' + ${pracownik.idPracownika}}">Usuń</a>
+                    <a th:href="@{'/editzbiornik/' + ${zbiorniki.id_zbiornika}}">Edytuj</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a th:href="@{'/deletezbiornik/' + ${zbiorniki.id_zbiornika}}">Usuń</a>
                 </td>
 
             </tr>
@@ -109,7 +107,7 @@
 
         </table>
 
-        <a href="/new">Dodaj nowy zbiornik</a>
+        <a href="/newzbiornik_user">Dodaj nowy zbiornik</a>
     </div>
 </div>
 

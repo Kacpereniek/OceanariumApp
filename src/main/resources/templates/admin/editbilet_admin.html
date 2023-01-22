@@ -10,7 +10,7 @@
 <body>
 
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+<nav class="navbar navbar-expand-lg navbar-dark static-top" style="background-color: #1b5a7a">
     <div class="container">
         <a class="navbar-brand" href="/">Baza Oceanarium Politechniki Warszawskiej</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -21,11 +21,9 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
 
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/index}">Home</a>
-                </li>
 
-                <li class="nav-item active">
+
+                <li class="nav-item ">
                     <a class="nav-link" th:href="@{/main_admin}">Main</a>
                 </li>
                 <li class="nav-item">
@@ -34,10 +32,8 @@
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/okazy_admin}">Okazy</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/zbiorniki_admin}">Zbiorniki</a>
-                </li>
-                <li class="nav-item">
+
+                <li class="nav-item active">
                     <a class="nav-link" href="#">Bilety
                         <span class="sr-only">(current)</span></a>
                 </li>
@@ -53,53 +49,66 @@
 
 
 <div align="center">
-    <h1>Edytuj bilet</h1>
+    <h1>Dodaj nowy bilet</h1>
 
     <br/>
 
-    <form action="#" th:action="@{/updatebilet_admin}" th:object="${bilety}" method="post">
-        <table border="1" cellpadding="10">
-            <tr>
-                <td>id_bilet:</td>
-                <td><input type="text" th:field="*{id_bilet}" readonly="readonly"></td>
-            </tr>
-            <tr>
-                <td>id_klienta:</td>
-                <td><input type="text" th:field="*{id_klienta}"></td>
-            </tr>
+    <div class="container" style="width: 500px">
+        <form action="#" th:action="@{/updatebilet_admin}" th:object="${bilety}" method="post">
 
-            <tr>
-                <td>typ_biletu:</td>
-                <td><input type="text" th:field="*{typ_biletu}"></td>
-            </tr>
 
-            <tr>
-                <td>rodzaj_biletu:</td>
-                <td><input type="text" th:field="*{rodzaj_biletu}"></td>
-            </tr>
+            <div class="input-group mb-2">
+            <div class="input-group-prepend">
+                <span class="input-group-text" style="width: 150px">Typ biletu</span>
+            </div>
+            <select class="form-control" th:field="*{typ_biletu}">
+                <option th:value="'Normalny'" th:text="Normalny"></option>
+                <option th:value="'Ulgowy'" th:text="Ulgowy"></option>
+                <option th:value="'Szkolny'" th:text="Szkolny"></option>
+                <option th:value="'Studencki'" th:text="Studencki"></option>
 
-            <tr>
-                <td>nazwa:</td>
-                <td><input type="text" th:field="*{nazwa}"></td>
-            </tr>
+            </select>
+        </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text " style="width: 150px">Rodzaj biletu</span>
+                </div>
+                <select class="form-control" th:field="*{rodzaj_biletu}">
+                    <option th:value="'Indywidualny'" th:text="Indywidualny"></option>
+                    <option th:value="'Rodzinny'" th:text="Rodzinny"></option>
+                    <option th:value="'Grupowy'" th:text="Grupowy"></option>
 
-            <tr>
-                <td>cena:</td>
-                <td><input type="text" th:field="*{cena}"></td>
-            </tr>
 
-            <tr>
-                <td>data_biletu:</td>
-                <td><input type="text" th:field="*{data_biletu}"></td>
-            </tr>
+                </select>
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width: 150px">Nazwa</span>
+                </div>
+                <input class="form-control"  type="text" th:field="*{nazwa}" maxlength="15">
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width: 150px">Cena</span>
+                </div>
+                <input class="form-control" type="text" th:field="*{cena}" maxlength="3">
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width: 150px">Data biletu</span>
+                </div>
+                <input class="form-control" type="date" th:field="*{data_biletu}">
+            </div>
 
-            <tr>
-                <td colspan="2" align="center"><button type="submit">Zapisz</button></td>
-            </tr>
-        </table>
+            <button
+                    class='btn text-white'
+                    style="background-color: #1b5a7a; font-size: 18px"
+                    type="submit"
+            >Zapisz</button>
+        </form>
+    </div>
     </form>
 </div>
-
 <div align="center">
 
 

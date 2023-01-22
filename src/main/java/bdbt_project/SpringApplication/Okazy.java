@@ -2,8 +2,8 @@ package bdbt_project.SpringApplication;
 
 public class Okazy {
     private int id_okazu;
-    private int id_zbiornika;
-    private int id_gatunku;
+    private String id_zbiornika;
+    private String id_gatunku;
     private String typ_okazu;
     private String nazwa;
     private int liczebnosc;
@@ -12,7 +12,7 @@ public class Okazy {
 
 
 
-    public Okazy(int id_okazu, int id_zbiornika, int id_gatunku, String typ_okazu, String nazwa, int liczebnosc, String opis) {
+    public Okazy(int id_okazu, String id_zbiornika, String id_gatunku, String typ_okazu, String nazwa, int liczebnosc, String opis) {
         this.id_okazu = id_okazu;
         this.id_zbiornika = id_zbiornika;
         this.id_gatunku = id_gatunku;
@@ -35,19 +35,19 @@ public class Okazy {
         this.id_okazu = id_okazu;
     }
 
-    public int getId_zbiornika() {
+    public String getId_zbiornika() {
         return id_zbiornika;
     }
 
-    public void setId_zbiornika(int id_zbiornika) {
+    public void setId_zbiornika(String id_zbiornika) {
         this.id_zbiornika = id_zbiornika;
     }
 
-    public int getId_gatunku() {
+    public String getId_gatunku() {
         return id_gatunku;
     }
 
-    public void setId_gatunku(int id_gatunku) {
+    public void setId_gatunku(String id_gatunku) {
         this.id_gatunku = id_gatunku;
     }
 

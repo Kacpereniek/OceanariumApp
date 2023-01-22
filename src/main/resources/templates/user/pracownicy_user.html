@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Main User Page</title>
+    <title>Main Admin Page</title>
 
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
 
@@ -10,7 +10,7 @@
 <body>
 
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+<nav class="navbar navbar-expand-lg navbar-dark static-top" style="background-color: #1b5a7a">
     <div class="container">
         <a class="navbar-brand" href="/">Baza Oceanarium Politechniki Warszawskiej</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -21,12 +21,10 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
 
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/index}">Home</a>
-                </li>
 
                 <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/main_user}">Main</a>
+                    <a class="nav-link" th:href="@{/main_user}">Main
+                    </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Pracownicy
@@ -35,11 +33,9 @@
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/okazy_user}">Okazy</a>
                 </li>
+
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/zbiorniki_user}">Zbiorniki</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/bilety_user}">Bilety</a>
+                    <a class="nav-link" th:href="@{/newbilet_user}">Bilety</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" th:inline="text" style="color:lightskyblue;">You are logged in as <b
@@ -51,13 +47,12 @@
     </div>
 </nav>
 
-
 <div class="container">
     <div class="row">
         <div class="col-md-10 mt-5">
 
-            <label style="font-size:30px">Zarządzanie Okazami</label>
-            <div style="font-size:20px">Edytowanie danych związanych z okazami
+            <label style="font-size:30px">Zarządzanie Pracownikami</label>
+            <div style="font-size:20px">Edytowanie danych związanych z Pracownikami
             </div>
 
         </div>
@@ -66,57 +61,78 @@
 
 <div class="container">
     <div class="col-md-10 mt-5">
-        <h1>Okazy</h1>
+        <h1>Pracownicy</h1>
 
         <table border="1" cellpadding="10">
-
             <thead>
             <tr>
-                <th>id_okazu</th>
-                <th>id_zbiornika</th>
-                <th>id_gatunku</th>
-                <th>typ_okazu</th>
-                <th>nazwa</th>
-                <th>liczebnosc</th>
-                <th>opis</th>
-                <th>Operacja</th>
+                <!--  <th>id_pracownika</th>
+                  <th>id_oceanarium</th>-->
+
+                  <th>Stanowisko</th>
+                  <th>Imie</th>
+                <!-- <th>drugie_imie</th>-->
+                 <th>Nazwisko</th>
+                 <th>Data urodzenia</th>
+                 <th>Płeć</th>
+                 <th>PESEL</th>
+                 <th>Telefon</th>
+                 <th>Email</th>
+                 <th>Data zatrudnienia</th>
+                 <th>Data zwolnienia</th>
+                 <th>Wyksztalcenie</th>
+                 <th>Adres</th>
+                 <th>Operacja</th>
 
 
-            </tr>
-            </thead>
 
-            <tbody>
-            <tr th:each="okazy : ${listOkazy}">
-                <td th:text="${okazy.id_okazu}">id_okazu</td>
-                <td th:text="${okazy.id_zbiornika}">id_zbiornika</td>
-                <td th:text="${okazy.id_gatunku}">id_gatunku</td>
-                <td th:text="${okazy.typ_okazu}">typ_okazu</td>
-                <td th:text="${okazy.nazwa}">nazwa</td>
-                <td th:text="${okazy.liczebnosc}">liczebnosc</td>
-                <td th:text="${okazy.opis}">opis</td>
-                <td>
-                    <a th:href="@{'/edit/' + ${pracownik.idPracownika}}">Edytuj</a>
+             </tr>
+             </thead>
 
-                    <a th:href="@{'/delete/' + ${pracownik.idPracownika}}">Usuń</a>
-                </td>
-            </tr>
-            </tbody>
+             <tbody>
+             <tr th:each="pracownicy : ${listPracownicy}">
+                 <!--<td th:text="${pracownicy.id_pracownika}">id_pracownika</td>
+                   <td th:text="${pracownicy.id_oceanarium}">id_oceanarium</td>-->
+                  <td th:text="${pracownicy.id_stanowiska}">id_stanowiska</td>
+                  <td th:text="${pracownicy.imie}">imie</td>
+                 <!--  <td th:text="${pracownicy.drugie_imie}">drugie_imie</td>-->
+                   <td th:text="${pracownicy.nazwisko}">nazwisko</td>
+                   <td th:text="${pracownicy.data_urodzenia}">data_urodzenia</td>
+                   <td th:text="${pracownicy.plec}">plec</td>
+                   <td th:text="${pracownicy.pesel}">pesel</td>
+                   <td th:text="${pracownicy.telefon}">telefon</td>
+                   <td th:text="${pracownicy.email}">email</td>
+                   <td th:text="${pracownicy.data_zatrudnienia}">data_zatrudnienia</td>
+                   <td th:text="${pracownicy.data_zwolnienia}">data_zwolnienia</td>
+                   <td th:text="${pracownicy.wyksztalcenie}">wyksztalcenie</td>
+                   <td th:text="${pracownicy.id_adresu}">Adres</td>
 
-        </table>
+                 <td>
 
-        <a href="/new">Dodaj nowy okaz</a>
-    </div>
-</div>
+                       <a th:href="@{'/editpracownik/' + ${pracownicy.id_pracownika}}">Edytuj</a>
+                       &nbsp;
+                       <a th:href="@{'/deletepracownik/' + ${pracownicy.id_pracownika}}">Usuń</a>
+                   </td>
 
-<div align="center">
+               </tr>
+               </tbody>
+
+           </table>
+
+           <a href="/newadres_user">Dodaj nowego pracownika</a>
+       </div>
+   </div>
+
+   <div align="center">
 
 
-</div>
+   </div>
 
-<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
-<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-<script th:src="@{/js/script.js}"></script>
 
-</body>
-</html>
+   <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+   <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+   <script th:src="@{/js/script.js}"></script>
+
+   </body>
+   </html>
