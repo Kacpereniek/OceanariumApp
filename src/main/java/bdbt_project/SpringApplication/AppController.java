@@ -76,7 +76,7 @@ public class AppController implements WebMvcConfigurer {
         @RequestMapping(value = "/saveokaz_admin", method = RequestMethod.POST)
         public String save(@ModelAttribute("okazy") Okazy okazy) {
             dao2.save(okazy);
-            return "redirect:/okazy_admin";
+            return "redirect:/okazy";
         }
 
         @RequestMapping("/editokaz/{id_okazu}")
@@ -93,14 +93,14 @@ public class AppController implements WebMvcConfigurer {
             dao2.update(okazy);
             System.out.println(okazy);
 
-            return "redirect:/okazy_admin";
+            return "redirect:/okazy";
         }
 
         @RequestMapping("/deleteokaz/{id_okazu}")
         public String deleteOkaz(@PathVariable(name = "id_okazu") int id) {
             dao2.delete(id);
 
-            return "redirect:/okazy_admin";
+            return "redirect:/okazy";
         }
 
 
@@ -126,7 +126,7 @@ public class AppController implements WebMvcConfigurer {
         @RequestMapping(value = "/savepracownik_admin", method = RequestMethod.POST)
         public String save(@ModelAttribute("pracownicy") Pracownicy pracownicy) {
             dao4.save(pracownicy);
-            return "redirect:/pracownicy_admin";
+            return "redirect:/pracownicy";
         }
 
         @RequestMapping("/editpracownik/{id_pracownika}")
@@ -137,21 +137,14 @@ public class AppController implements WebMvcConfigurer {
 
             return mav;
         }
-//        @RequestMapping("/editpracownik/9")
-//        public ModelAndView showEditPracownik2Page(@PathVariable(name = "id_pracownika") int id) {
-//            ModelAndView mav = new ModelAndView("user/editpracownik_user");
-//            Pracownicy pracownicy = dao4.get(id);
-//            mav.addObject("pracownicy", pracownicy);
-//
-//            return mav;
-//        }
+
 
         @RequestMapping(value = "/updatepracownik_admin", method = RequestMethod.POST)
         public String update(@ModelAttribute("pracownicy") Pracownicy pracownicy) {
             dao4.update(pracownicy);
             System.out.println(pracownicy);
 
-            return "redirect:/pracownicy_admin";
+            return "redirect:/pracownicy";
         }
 
         @RequestMapping("/deletepracownik/{id_pracownika}")
@@ -201,7 +194,7 @@ public class AppController implements WebMvcConfigurer {
         @RequestMapping(value = "/savebilet_admin", method = RequestMethod.POST)
         public String save2(@ModelAttribute("bilety") Bilety bilety) {
             dao5.save(bilety);
-            return "redirect:/bilety_admin";
+            return "redirect:/bilety";
         }
         @RequestMapping(value="/updatebilet_admin", method = RequestMethod.POST)
         public String updateBilet(@ModelAttribute("bilety") Bilety bilety) {
@@ -308,7 +301,7 @@ public class AppController implements WebMvcConfigurer {
             dao8.update(gatunki);
             System.out.println(gatunki);
 
-            return "redirect:/okazy_admin";
+            return "redirect:/okazy";
         }
 
         @RequestMapping("/main")
@@ -320,13 +313,34 @@ public class AppController implements WebMvcConfigurer {
             } else {
                 return "redirect:/index";
             }
+
+        }
+        @RequestMapping("/okazy")
+        public String defaultAfterOkazy(HttpServletRequest request) {
+            if (request.isUserInRole("ADMIN")) {
+                return "redirect:/okazy_admin";
+            } else if (request.isUserInRole("USER")) {
+                return "redirect:/okazy_user";
+            } else {
+                return "redirect:/index";
+            }
+        }
+        @RequestMapping("/bilety")
+        public String defaultAfterBilety(HttpServletRequest request) {
+            if (request.isUserInRole("ADMIN")) {
+                return "redirect:/bilety_admin";
+            } else if (request.isUserInRole("USER")) {
+                return "redirect:/newbilet_user";
+            } else {
+                return "redirect:/index";
+            }
         }
         @RequestMapping("/pracownicy")
         public String pracownicy2(HttpServletRequest request) {
             if (request.isUserInRole("ADMIN")) {
                 return "redirect:/pracownicy_admin";
             } else if (request.isUserInRole("USER")) {
-                return "redirect:/editpracownik_user/9";
+                return "redirect:/editpracownik/9";
             } else {
                 return "redirect:/index";
             }

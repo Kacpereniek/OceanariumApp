@@ -24,13 +24,13 @@
 
 
                 <li class="nav-item ">
-                    <a class="nav-link" th:href="@{/main_user}">Main</a>
+                    <a class="nav-link" th:href="@{/main}">Main</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/editpracownik_user/9}">Pracownicy</a>
+                    <a class="nav-link" th:href="@{/editpracownik/9}">Pracownicy</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/okazy_user}">Okazy</a>
+                    <a class="nav-link" th:href="@{/okazy}">Okazy</a>
                 </li>
 
                 <li class="nav-item active">
@@ -54,7 +54,7 @@
     <br/>
 
     <div class="container" style="width: 500px">
-        <form action="#" th:action="@{/savebilet_user}" th:object="${bilety}" method="post">
+        <form action="#" th:action="@{/savebilet_admin}" th:object="${bilety}" method="post">
 
             <div class="input-group mb-2">
                 <div class="input-group-prepend">
