@@ -49,9 +49,10 @@ public class PracownicyDAO {
     }
 
     public void update(Pracownicy pracownicy) {
-        String sql = "UPDATE PRACOWNICY SET id_oceanarium=:id_oceanarium, id_adresu=:id_adresu, id_stanowiska=:id_stanowiska, imie=:imie, drugie_imie=:drugie_imie, nazwisko=:nazwisko, data_urodzenia=:data_urodzenia, plec=:plec, pesel=:pesel, telefon=:telefon, email=:email, data_zatrudnienia=:data_zatrudnienia, data_zwolnienia=:data_zwolnienia, wyksztalcenie=:wyksztalcenie WHERE id_pracownika=:id_pracownika";
+        String sql = "UPDATE PRACOWNICY SET id_stanowiska=:id_stanowiska, imie=:imie, drugie_imie=:drugie_imie, nazwisko=:nazwisko, data_urodzenia=:data_urodzenia, plec=:plec, pesel=:pesel, telefon=:telefon, email=:email, data_zatrudnienia=:data_zatrudnienia, data_zwolnienia=:data_zwolnienia, wyksztalcenie=:wyksztalcenie WHERE id_pracownika=:id_pracownika";
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(pracownicy);
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);
+
 
         template.update(sql, param);
     }

@@ -1,7 +1,6 @@
 package bdbt_project.SpringApplication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.ReactiveAdapterRegistry;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -12,12 +11,8 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import javax.management.Query;
 import javax.servlet.http.HttpServletRequest;
-import javax.swing.*;
-import java.awt.print.Printable;
 import java.util.List;
-import java.util.Queue;
 
 @Configuration
 public class AppController implements WebMvcConfigurer {
@@ -32,13 +27,12 @@ public class AppController implements WebMvcConfigurer {
         registry.addViewController("/okazy_admin").setViewName("admin/okazy_admin");
         registry.addViewController("/pracownicy_admin").setViewName("admin/pracownicy_admin");
         registry.addViewController("/bilety_admin").setViewName("admin/bilety_admin");
-        registry.addViewController("/zbiorniki_admin").setViewName("admin/zbiorniki_admin");
+
 
         registry.addViewController("/main_user").setViewName("user/main_user");
         registry.addViewController("/okazy_user").setViewName("user/okazy_user");
-        registry.addViewController("/pracownicy_user").setViewName("user/pracownicy_user");
         registry.addViewController("/bilety_user").setViewName("user/bilety_user");
-        registry.addViewController("/zbiorniki_user").setViewName("user/zbiorniki_user");
+
 
     }
 
@@ -95,8 +89,9 @@ public class AppController implements WebMvcConfigurer {
         }
 
         @RequestMapping(value = "/updateokaz_admin", method = RequestMethod.POST)
-        public String updateOkaz(@ModelAttribute("okazy") Okazy okazy) {
+        public String update(@ModelAttribute("okazy") Okazy okazy) {
             dao2.update(okazy);
+            System.out.println(okazy);
 
             return "redirect:/okazy_admin";
         }
@@ -142,18 +137,19 @@ public class AppController implements WebMvcConfigurer {
 
             return mav;
         }
-        @RequestMapping("/editpracownik/9")
-        public ModelAndView showEditPracownik2Page(@PathVariable(name = "id_pracownika") int id) {
-            ModelAndView mav = new ModelAndView("user/editpracownik_user");
-            Pracownicy pracownicy = dao4.get(id);
-            mav.addObject("pracownicy", pracownicy);
-
-            return mav;
-        }
+//        @RequestMapping("/editpracownik/9")
+//        public ModelAndView showEditPracownik2Page(@PathVariable(name = "id_pracownika") int id) {
+//            ModelAndView mav = new ModelAndView("user/editpracownik_user");
+//            Pracownicy pracownicy = dao4.get(id);
+//            mav.addObject("pracownicy", pracownicy);
+//
+//            return mav;
+//        }
 
         @RequestMapping(value = "/updatepracownik_admin", method = RequestMethod.POST)
-        public String updatePracownik(@ModelAttribute("pracownicy") Pracownicy pracownicy) {
+        public String update(@ModelAttribute("pracownicy") Pracownicy pracownicy) {
             dao4.update(pracownicy);
+            System.out.println(pracownicy);
 
             return "redirect:/pracownicy_admin";
         }
@@ -197,20 +193,20 @@ public class AppController implements WebMvcConfigurer {
             return "user/newbilet_user";
         }
 
-        @RequestMapping(value = "/savebilet_user", method = RequestMethod.POST)
-        public String save(@ModelAttribute("bilety") Bilety bilety) {
-            dao5.save(bilety);
-            return "redirect:/newbilet_user";
-        }
+//        @RequestMapping(value = "/savebilet_user", method = RequestMethod.POST)
+//        public String save(@ModelAttribute("bilety") Bilety bilety) {
+//            dao5.save(bilety);
+//            return "redirect:/newbilet_user";
+//        }
         @RequestMapping(value = "/savebilet_admin", method = RequestMethod.POST)
         public String save2(@ModelAttribute("bilety") Bilety bilety) {
             dao5.save(bilety);
             return "redirect:/bilety_admin";
         }
-        @RequestMapping(value = "/updatebilet_admin", method = {RequestMethod.POST})
-        public String update(@ModelAttribute("bilety") Bilety bilety) {
+        @RequestMapping(value="/updatebilet_admin", method = RequestMethod.POST)
+        public String updateBilet(@ModelAttribute("bilety") Bilety bilety) {
             dao5.update(bilety);
-
+            System.out.println(bilety);
             return "redirect:/bilety_admin";
         }
 
@@ -268,6 +264,7 @@ public class AppController implements WebMvcConfigurer {
         @RequestMapping(value = "/updateadres_admin", method = RequestMethod.POST)
         public String update(@ModelAttribute("adresy") Adresy adresy) {
             dao6.update(adresy);
+            System.out.println(adresy);
 
             return "redirect:/pracownicy";
         }
@@ -309,6 +306,7 @@ public class AppController implements WebMvcConfigurer {
         @RequestMapping(value = "/updategatunek_admin", method = {RequestMethod.POST})
         public String update(@ModelAttribute("gatunki") Gatunki gatunki) {
             dao8.update(gatunki);
+            System.out.println(gatunki);
 
             return "redirect:/okazy_admin";
         }
@@ -338,23 +336,8 @@ public class AppController implements WebMvcConfigurer {
             return "admin/main_admin";
         }
 
-        @RequestMapping(value = "/updatepracownik_user", method = RequestMethod.POST)
-        public String updateUserData(@ModelAttribute("pracownicy") Pracownicy pracownicy) {
-            dao4.update(pracownicy);
 
-            String idString = Integer.toString(pracownicy.getId_pracownika());
 
-            return "redirect:/editpracownik_user/9";
-        }
-        @RequestMapping("/editpracownik_user/{idKlienta}")
-        public ModelAndView showEditUserDataPage(@PathVariable(name = "idKlienta") int id) {
-            ModelAndView mav = new ModelAndView("user/editpracownik_user");
-
-            Pracownicy pracownicy = dao4.get(id);
-            mav.addObject("pracownicy", pracownicy);
-
-            return mav;
-        }
         @RequestMapping(value = "/main_user/{idKlienta}")
         public ModelAndView showUserPage(Model model, @PathVariable(name = "idKlienta") int id) {
             ModelAndView mav = new ModelAndView("user/main_user");

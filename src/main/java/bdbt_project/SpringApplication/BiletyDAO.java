@@ -45,7 +45,7 @@ public class BiletyDAO {
     }
 
     public void update(Bilety bilety) {
-        String sql = "UPDATE BILETY SET ID_KLIENTA=:id_klienta, TYP_BILETU=:typ_biletu, RODZAJ_BILETU=:rodzaj_biletu," +
+        String sql = "UPDATE BILETY SET TYP_BILETU=:typ_biletu, RODZAJ_BILETU=:rodzaj_biletu," +
                 " NAZWA=:nazwa, CENA=:cena, DATA_BILETU=:data_biletu WHERE ID_BILET=:id_bilet";
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(bilety);
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);

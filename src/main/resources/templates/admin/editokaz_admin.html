@@ -102,10 +102,10 @@
                     type="submit"
             >Zapisz</button>
             <input class="form-control" type="hidden" th:field="*{id_gatunku}">
+            <input class="form-control" type="hidden" th:field="*{id_okazu}">
         </form>
 
     </div>
-    </form>
     <a class="btn text-white mt-1 mb-1"
        style="background-color: #1b5a7a; font-size: 18px" th:href="@{'/editgatunek/' + ${okazy.id_gatunku}}">Gatunek</a>
 </div>

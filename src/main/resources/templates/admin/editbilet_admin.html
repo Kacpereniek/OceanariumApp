@@ -58,9 +58,9 @@
 
 
             <div class="input-group mb-2">
-            <div class="input-group-prepend">
-                <span class="input-group-text" style="width: 150px">Typ biletu</span>
-            </div>
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width: 150px">Typ biletu</span>
+                </div>
             <select class="form-control" th:field="*{typ_biletu}">
                 <option th:value="'Normalny'" th:text="Normalny"></option>
                 <option th:value="'Ulgowy'" th:text="Ulgowy"></option>
@@ -105,9 +105,9 @@
                     style="background-color: #1b5a7a; font-size: 18px"
                     type="submit"
             >Zapisz</button>
+            <input class="form-control"  type="hidden" th:field="*{id_bilet}">
         </form>
     </div>
-    </form>
 </div>
 <div align="center">
 

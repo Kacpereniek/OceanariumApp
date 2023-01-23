@@ -11,14 +11,14 @@ public class Pracownicy {
     private String data_urodzenia;
     private String plec;
     private String pesel;
-    private int telefon;
+    private String telefon;
     private String email;
     private String data_zatrudnienia;
     private String data_zwolnienia;
     private String wyksztalcenie;
 
 
-    public Pracownicy(int id_pracownika, int id_oceanarium, String id_adresu, String id_stanowiska, String imie, String drugie_imie, String nazwisko, String data_urodzenia, String plec, String pesel, int telefon, String email, String data_zatrudnienia, String data_zwolnienia, String wyksztalcenie) {
+    public Pracownicy(int id_pracownika, int id_oceanarium, String id_adresu, String id_stanowiska, String imie, String drugie_imie, String nazwisko, String data_urodzenia, String plec, String pesel, String telefon, String email, String data_zatrudnienia, String data_zwolnienia, String wyksztalcenie) {
         this.id_pracownika = id_pracownika;
         this.id_oceanarium = id_oceanarium;
         this.id_adresu = id_adresu;
@@ -118,11 +118,11 @@ public class Pracownicy {
         this.pesel = pesel;
     }
 
-    public int getTelefon() {
+    public String getTelefon() {
         return telefon;
     }
 
-    public void setTelefon(int telefon) {
+    public void setTelefon(String telefon) {
         this.telefon = telefon;
     }
 

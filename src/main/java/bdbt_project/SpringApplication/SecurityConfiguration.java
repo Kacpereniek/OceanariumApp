@@ -37,19 +37,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/pracownicy").authenticated()
                 .antMatchers("/okazy").authenticated()
                 .antMatchers("/bilety").authenticated()
-                .antMatchers("/zbiorniki").authenticated()
+
 
                 .antMatchers("/main_admin").access("hasRole('ADMIN')")
                 .antMatchers("/pracownicy_admin").access("hasRole('ADMIN')")
                 .antMatchers("/okazy_admin").access("hasRole('ADMIN')")
                 .antMatchers("/bilety_admin").access("hasRole('ADMIN')")
-                .antMatchers("/zbiorniki_admin").access("hasRole('ADMIN')")
 
                 .antMatchers("/main_user").access("hasRole('USER')")
                 .antMatchers("/pracownicy_user").access("hasRole('USER')")
                 .antMatchers("/okazy_user").access("hasRole('USER')")
                 .antMatchers("/bilety_user").access("hasRole('USER')")
-                .antMatchers("/zbiorniki_user").access("hasRole('USER')")
+
                 .and()
                 .formLogin()
                 .loginPage("/login")
