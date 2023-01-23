@@ -39,7 +39,7 @@
                     <a class="nav-link" th:href="@{/bilety_admin}">Bilety</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:inline="text" style="color:lightskyblue;">You are logged in as <b
+                    <a class="nav-link" th:inline="text" style="color:lightskyblue;">Jesteś zalogowany jako <b
                             style="text-transform:capitalize">[[${#httpServletRequest.remoteUser}]]</b></a>
                 </li>
 
@@ -48,25 +48,20 @@
     </div>
 </nav>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 mt-5">
-
-            <label style="font-size:30px">Zarządzanie Pracownikami</label>
-            <div style="font-size:20px">Edytowanie danych związanych z Pracownikami
-            </div>
-
-        </div>
+<div class="container" style="width: 100%">
+    <div class=" mt-5" align="center">
+        <h1>Pracownicy</h1>
     </div>
 </div>
 
-<div style="margin-left: -550px">
-    <div class="container text-nowrap">
-        <div class="col-md-10 mt-5">
-            <a href="/newadres_admin"
-               class="btn text-white mt-1 mb-1"
-               style="background-color: #1b5a7a; font-size: 18px"
-            >Dodaj nowego pracownika</a>
+<div align="center">
+    <a href="/newadres_admin"
+       class="btn text-white mt-1 mb-1"
+       style="background-color: #1b5a7a; font-size: 18px"
+    >Dodaj nowego pracownika</a>
+    <div class="container text-nowrap" style="transform: translate(-35%, 0)">
+        <div class="col-md-10 ">
+
             <table class="table table-bordered">
                 <thead class="thead-light">
                 <tr>
@@ -105,7 +100,9 @@
                     </td>
                 </tr>
                 </tbody>
+
             </table>
+
         </div>
     </div>
 </div>

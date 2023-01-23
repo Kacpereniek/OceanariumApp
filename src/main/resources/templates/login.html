@@ -46,19 +46,19 @@
 
                 <div class="form-group">
                     <label for="login">Login:</label>
-                    <input id="login" type="text" placeholder="Enter login" autocomplete="off" class="form-control" name="username"/>
+                    <input id="login" type="text" placeholder="Wprowadź login" autocomplete="off" class="form-control" name="username"/>
                 </div>
 
                 <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input id="password" type="password" placeholder="Enter your password" autocomplete="off" class="form-control" name="password"/>
+                    <label for="password">Hasło:</label>
+                    <input id="password" type="password" placeholder="Wprowadź hasło" autocomplete="off" class="form-control" name="password"/>
                 </div>
 
                 <div th:if="${param.error}" style="color:red; margin-bottom:15px">
                     ERROR: Invalid username or password!
                 </div>
 
-                <button class="btn btn-primary" type="submit" value="Sign In" style="background-color: #1b5a7a; border-color: #1b5a7a">Login</button>
+                <button class="btn btn-primary" type="submit" value="Sign In" style="background-color: #1b5a7a; border-color: #1b5a7a">Zaloguj się</button>
             </form>
 
 

@@ -38,7 +38,7 @@
                         <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:inline="text" style="color:lightskyblue;">You are logged in as <b
+                    <a class="nav-link" th:inline="text" style="color:lightskyblue;">Jesteś zalogowany jako <b
                             style="text-transform:capitalize">[[${#httpServletRequest.remoteUser}]]</b></a>
                 </li>
 
@@ -49,20 +49,14 @@
 
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-10 mt-5">
 
-            <label style="font-size:30px">Zarządzanie Biletami</label>
-            <div style="font-size:20px">Edytowanie danych związanych z Biletami
-            </div>
 
-        </div>
+    <div class="mt-5" align="center">
+        <h1>Bilety</h1>
     </div>
-</div>
 
-<div>
-    <div class="container text-nowrap">
-        <div class="col-md-10 mt-5">
+    <div class="container text-nowrap" align="center" >
+        <div class="col-md-10">
             <a href="/newbilet_admin"
                class="btn text-white mt-1 mb-1"
                style="background-color: #1b5a7a; font-size: 18px"
@@ -102,10 +96,7 @@
     </div>
 </div>
 
- <div align="center">
 
-
- </div>
 
  <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
  <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
