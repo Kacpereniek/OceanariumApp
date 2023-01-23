@@ -85,19 +85,19 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" style="width: 150px">Nazwa</span>
                 </div>
-                <input class="form-control"  type="text" th:field="*{nazwa}" maxlength="15">
+                <input class="form-control"  type="text" th:field="*{nazwa}">
             </div>
             <div class="input-group mb-2">
                 <div class="input-group-prepend">
                     <span class="input-group-text" style="width: 150px">Cena</span>
                 </div>
-                <input class="form-control" type="text" th:field="*{cena}" maxlength="3">
+                <input class="form-control" type="text" th:field="*{cena}" maxlength="3" required>
             </div>
             <div class="input-group mb-2">
                 <div class="input-group-prepend">
                     <span class="input-group-text" style="width: 150px">Data biletu</span>
                 </div>
-                <input class="form-control" type="date" th:field="*{data_biletu}">
+                <input class="form-control" type="date" th:field="*{data_biletu}" required>
             </div>
 
             <button

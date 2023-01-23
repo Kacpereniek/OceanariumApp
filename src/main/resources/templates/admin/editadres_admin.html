@@ -60,24 +60,24 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text  " style="width: 150px">Kod pocztowy</span>
                 </div>
-                <input class="form-control" type="tel" th:field="*{kod_pocztowy}" maxlength="6">
+                <input class="form-control" type="tel" th:field="*{kod_pocztowy}" maxlength="6" required>
             </div>
             <div class="input-group mb-2">
                 <div class="input-group-prepend">
                     <span class="input-group-text  " style="width: 150px">Miasto</span>
                 </div>
-                <input class="form-control" type="text" th:field="*{miasto}" maxlength="15">
+                <input class="form-control" type="text" th:field="*{miasto}"required>
             </div><div class="input-group mb-2">
             <div class="input-group-prepend">
                 <span class="input-group-text  " style="width: 150px">Ulica</span>
             </div>
-            <input class="form-control" type="text" th:field="*{ulica}" maxlength="15">
+            <input class="form-control" type="text" th:field="*{ulica}" required>
         </div>
             <div class="input-group mb-2">
                 <div class="input-group-prepend">
                     <span class="input-group-text  " style="width: 150px">Numer domu</span>
                 </div>
-                <input class="form-control" type="tel" th:field="*{nr_domu}" maxlength="3">
+                <input class="form-control" type="tel" th:field="*{nr_domu}" maxlength="3" required>
             </div>
             <div class="input-group mb-2">
                 <div class="input-group-prepend">
