@@ -6,13 +6,13 @@ public class Bilety {
     private String typ_biletu;
     private String rodzaj_biletu;
     private String nazwa;
-    private int cena;
+    private String cena;
     private String data_biletu;
 
 
 
 
-    public Bilety(int id_bilet, String id_klienta, String typ_biletu, String rodzaj_biletu, String nazwa, int cena, String data_biletu) {
+    public Bilety(int id_bilet, String id_klienta, String typ_biletu, String rodzaj_biletu, String nazwa, String cena, String data_biletu) {
         this.id_bilet = id_bilet;
         this.id_klienta = id_klienta;
         this.typ_biletu = typ_biletu;
@@ -67,11 +67,11 @@ public class Bilety {
         this.nazwa = nazwa;
     }
 
-    public int getCena() {
+    public String getCena() {
         return cena;
     }
 
-    public void setCena(int cena) {
+    public void setCena(String cena) {
         this.cena = cena;
     }
 

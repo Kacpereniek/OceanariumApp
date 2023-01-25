@@ -80,19 +80,19 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text  " style="width: 150px">Nazwa</span>
                 </div>
-                <input class="form-control" type="text" th:field="*{nazwa}" >
+                <input class="form-control" type="text" th:field="*{nazwa}" autocomplete="off" >
             </div>
             <div class="input-group mb-2">
                 <div class="input-group-prepend">
                     <span class="input-group-text  " style="width: 150px">Liczba</span>
                 </div>
-                <input class="form-control" type="tel" th:field="*{liczebnosc}">
+                <input class="form-control" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" th:field="*{liczebnosc}" autocomplete="off" required>
             </div>
             <div class="input-group mb-2">
                 <div class="input-group-prepend">
                     <span class="input-group-text  " style="width: 150px">opis</span>
                 </div>
-                <input class="form-control" type="text" th:field="*{opis}" >
+                <input class="form-control" type="text" th:field="*{opis}"  autocomplete="off">
             </div>
 
             <button

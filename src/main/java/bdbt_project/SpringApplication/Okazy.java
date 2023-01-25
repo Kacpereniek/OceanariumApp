@@ -6,13 +6,13 @@ public class Okazy {
     private String id_gatunku;
     private String typ_okazu;
     private String nazwa;
-    private int liczebnosc;
+    private String liczebnosc;
     private String opis;
 
 
 
 
-    public Okazy(int id_okazu, String id_zbiornika, String id_gatunku, String typ_okazu, String nazwa, int liczebnosc, String opis) {
+    public Okazy(int id_okazu, String id_zbiornika, String id_gatunku, String typ_okazu, String nazwa, String liczebnosc, String opis) {
         this.id_okazu = id_okazu;
         this.id_zbiornika = id_zbiornika;
         this.id_gatunku = id_gatunku;
@@ -67,11 +67,11 @@ public class Okazy {
         this.nazwa = nazwa;
     }
 
-    public int getLiczebnosc() {
+    public String getLiczebnosc() {
         return liczebnosc;
     }
 
-    public void setLiczebnosc(int liczebnosc) {
+    public void setLiczebnosc(String liczebnosc) {
         this.liczebnosc = liczebnosc;
     }
     public String getOpis() {

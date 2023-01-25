@@ -72,7 +72,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text " style="width: 150px">Rodzaj biletu</span>
                 </div>
-                <select class="form-control" th:field="*{rodzaj_biletu}">
+                <select class="form-control" th:field="*{rodzaj_biletu}" >
                     <option th:value="'Indywidualny'" th:text="Indywidualny"></option>
                     <option th:value="'Rodzinny'" th:text="Rodzinny"></option>
                     <option th:value="'Grupowy'" th:text="Grupowy"></option>
@@ -84,19 +84,19 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" style="width: 150px">Nazwa</span>
                 </div>
-                <input class="form-control"  type="text" th:field="*{nazwa}" >
+                <input class="form-control"  type="text" th:field="*{nazwa}" autocomplete="off" >
             </div>
             <div class="input-group mb-2">
                 <div class="input-group-prepend">
                     <span class="input-group-text" style="width: 150px">Cena</span>
                 </div>
-                <input class="form-control" type="text" th:field="*{cena}" maxlength="3" required>
+                <input class="form-control" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" th:field="*{cena}" autocomplete="off" maxlength="3" required>
             </div>
             <div class="input-group mb-2">
                 <div class="input-group-prepend">
                     <span class="input-group-text" style="width: 150px">Data biletu</span>
                 </div>
-                <input class="form-control" type="date" th:field="*{data_biletu}" required>
+                <input class="form-control" type="date" th:field="*{data_biletu}"  required>
             </div>
 
             <button

@@ -84,13 +84,13 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" style="width: 150px">Nazwa</span>
                 </div>
-                <input class="form-control"  type="text" th:field="*{nazwa}">
+                <input class="form-control"  type="text" th:field="*{nazwa}" autocomplete="off">
             </div>
             <div class="input-group mb-2">
                 <div class="input-group-prepend">
                     <span class="input-group-text" style="width: 150px">Cena</span>
                 </div>
-                <input class="form-control" type="text" th:field="*{cena}" maxlength="3" required>
+                <input class="form-control" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" th:field="*{cena}" autocomplete="off" maxlength="3" required>
             </div>
             <div class="input-group mb-2">
                 <div class="input-group-prepend">

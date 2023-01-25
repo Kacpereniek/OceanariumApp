@@ -60,30 +60,30 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text  " style="width: 150px">Kod pocztowy</span>
                 </div>
-                <input class="form-control" type="tel" th:field="*{kod_pocztowy}" maxlength="6" required>
+                <input class="form-control" type="text" th:field="*{kod_pocztowy}" autocomplete="off" maxlength="6" required>
             </div>
             <div class="input-group mb-2">
                 <div class="input-group-prepend">
                     <span class="input-group-text  " style="width: 150px">Miasto</span>
                 </div>
-                <input class="form-control" type="text" th:field="*{miasto}"required>
+                <input class="form-control" type="text" th:field="*{miasto}" autocomplete="off" required>
             </div><div class="input-group mb-2">
             <div class="input-group-prepend">
                 <span class="input-group-text  " style="width: 150px">Ulica</span>
             </div>
-            <input class="form-control" type="text" th:field="*{ulica}" required>
+            <input class="form-control" type="text" th:field="*{ulica}" autocomplete="off" required>
         </div>
             <div class="input-group mb-2">
                 <div class="input-group-prepend">
                     <span class="input-group-text  " style="width: 150px">Numer domu</span>
                 </div>
-                <input class="form-control" type="tel" th:field="*{nr_domu}" maxlength="3" required>
+                <input class="form-control" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" th:field="*{nr_domu}" autocomplete="off" maxlength="3" required>
             </div>
             <div class="input-group mb-2">
                 <div class="input-group-prepend">
                     <span class="input-group-text  " style="width: 150px">Numer lokalu</span>
                 </div>
-                <input class="form-control" type="tel" th:field="*{nr_lokalu}" maxlength="3">
+                <input class="form-control" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" th:field="*{nr_lokalu}" autocomplete="off" maxlength="3">
             </div>
 
             <button
